@@ -12,13 +12,13 @@
     <button>입력</button>
 <script>
     const number = Number(prompt('참가자는 몇 명인가요?')); 
-    const _input = document.querySelector('input');
     const _button = document.querySelector('button');
+    const _input = document.querySelector('input');
     const _word = document.querySelector('#word');
     const _order = document.querySelector('#order');
-    let newWord; //입력한 단어
     let word; //제시어
-
+    let newWord; //입력한 단어
+ 
     const onInput = (event) => {
         newWord = event.target.value; 
     };
@@ -26,7 +26,8 @@
     const onClickButton = () => {
 
         //word = undifine 이면 false이므로 제시어가 비어있는가? 는 !word가 됨
-        if(!word){ //제시어가 비어있는가?
+        //제시어가 비어있거나(우선순위 1) 입력한 단어가 맞는 단어인가?(우선순위 2)
+        if(!word || word.at(-1) ===  newWord[0]){ 
 
             word = newWord; //입력한 단어가 제시어가 됨
             _word.textContent = word; //화면에 제시어 표시
@@ -39,38 +40,12 @@
                 _order.textContent = order + 1;
             };
 
-            //입력창을 비우고 커서를 위치시킨다
-            _input.value = '';
-            _input.focus();
-
-        }else{ //비어있지 않음
-
-            if(word.at(-1) ===  newWord[0]){ //제시어에 맞는 단어인가? (제시어의 마지막 글자와 현재 단어의 첫 글자 비교)
-                //맞는 단어
-                word = newWord; //현재 단어를 제시어에 저장
-                _word.textContent = word; //화면에 제시어 표시
-
-                const order = Number(_order.textContent);
-                if(order + 1 > number){
-                _order.textContent = 1;
-                }else{
-                    _order.textContent = order + 1;
-                };
-
-                //입력창을 비우고 커서를 위치시킨다
-                _input.value = '';
-                _input.focus();
-
-            }else {
-                alert('틀린 단어입니다!');
-
-                //입력창을 비우고 커서를 위치시킨다
-                _input.value = '';
-                _input.focus();
-
-            }
+        }else {
+            alert('틀린 단어입니다!');
         }
-
+        //입력창을 비우고 커서를 위치시킨다
+        _input.value = '';
+        _input.focus();
     };
 
     _input.addEventListener('input', onInput);
