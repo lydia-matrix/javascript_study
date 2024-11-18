@@ -19,19 +19,22 @@
     let word;
     let newWord;
 
-    if(number === null){
-        return;
-    }
-
-
     const onInput = (event) => {
             newWord = event.target.value;
         };
 
     const onClickButton = () => {
 
-        if(_input.value.length === 3 ){
-        
+        if(!_word || word.at(-1) === newWord[0] && _input.value.length === 3){
+            
+            word = newWord;
+            _word.textContent = word;
+
+            if(order + 1 > number){
+                _order.textContent = 1;
+            }else{
+                _order.textContent = order + 1;
+            };
 
         }else{
             alert("제시어는 세글자로 입력하셔야 합니다.");
@@ -39,7 +42,6 @@
 
 
     };
-
 
     _input.addEventListener('input', onInput);
     _button.addEventListener('button', onClickButton);
