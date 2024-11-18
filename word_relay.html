@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORD RELAY</title>
 </head>
 <body>
-    
+    <div><span id="order">1</span>번째 참가자</div>
+    <div>제시어: <span id="word"></span></div>
+    <input type="text">
+    <button>입력</button>
+<script>
+    const number = Number(prompt('참가자는 몇 명인가요?')); 
+    const _input = document.querySelector('input');
+    const _button = document.querySelector('button');
+    let newWord;
+    let word;
+
+    //word = undifine 이면 false이므로 제시어가 비어있는가? 는 !word가 됨
+    if(!word){
+
+    }else{
+
+    }
+
+    const onInput = (event) => {
+        newWord = event.target.value; 
+    };
+
+    const onClickButton = () => {
+
+    };
+
+    _input.addEventListener('input', onInput);
+    _button.addEventListener('click', onClickButton);
+
+</script>  
 </body>
 </html>
