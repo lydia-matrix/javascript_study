@@ -39,6 +39,10 @@
                 _order.textContent = order + 1;
             };
 
+            //입력창을 비우고 커서를 위치시킨다
+            _input.value = '';
+            _input.focus();
+
         }else{ //비어있지 않음
 
             if(word.at(-1) ===  newWord[0]){ //제시어에 맞는 단어인가? (제시어의 마지막 글자와 현재 단어의 첫 글자 비교)
@@ -52,8 +56,18 @@
                 }else{
                     _order.textContent = order + 1;
                 };
+
+                //입력창을 비우고 커서를 위치시킨다
+                _input.value = '';
+                _input.focus();
+
             }else {
                 alert('틀린 단어입니다!');
+
+                //입력창을 비우고 커서를 위치시킨다
+                _input.value = '';
+                _input.focus();
+
             }
         }
 
