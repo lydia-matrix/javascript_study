@@ -14,13 +14,23 @@
     const number = Number(prompt('참가자는 몇 명인가요?')); 
     const _input = document.querySelector('input');
     const _button = document.querySelector('button');
-    let newWord;
-    let word;
+    const _word = document.querySelector('#word');
+    let newWord; //입력한 단어
+    let word; //제시어
 
     //word = undifine 이면 false이므로 제시어가 비어있는가? 는 !word가 됨
-    if(!word){
+    if(!word){ //제시어가 비어있는가?
 
-    }else{
+        word = newWord; //입력한 단어가 제시어가 됨
+        _word.textContent = word; //화면에 제시어 표시
+
+    }else{ //비어있지 않음
+
+        if(word.at(-1) ===  newWord[0]){ //제시어에 맞는 단어인가? (제시어의 마지막 글자와 현재 단어의 첫 글자 비교)
+            //맞는 단어
+            word = newWord; //현재 단어를 제시어에 저장
+            _word.textContent = word; //화면에 제시어 표시
+        }
 
     }
 
